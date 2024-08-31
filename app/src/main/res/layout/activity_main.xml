@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main"
+    tools:context=".view.MainActivity">
+
+<TextView
+    android:id="@+id/switch_text"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Track Screen TIme:-"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toTopOf="@+id/locationTextView"
+    app:layout_constraintEnd_toStartOf="@+id/screen_time_switch"
+    app:layout_constraintStart_toStartOf="parent"
+    android:layout_marginVertical="16dp"/>
+
+    <Switch
+        android:id="@+id/screen_time_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:thumb="@drawable/switch_thumb"
+        android:track="@drawable/switch_track"
+        app:layout_constraintBottom_toTopOf="@+id/locationTextView"
+
+        app:layout_constraintEnd_toStartOf="@+id/setting_button"
+        app:layout_constraintStart_toEndOf="@+id/switch_text"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.549" />
+
+    <ImageButton
+        android:id="@+id/setting_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_settings_24"
+        android:contentDescription="Settings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/screen_time_switch"
+        android:layout_margin="16dp" />
+
+    <TextView
+        android:id="@+id/locationTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text=""
+        app:layout_constraintTop_toBottomOf="@+id/setting_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="#2196F3"
+        android:layout_marginTop="16dp"/>
+    <Button
+        android:id="@+id/post_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/locationTextView"
+        android:layout_centerHorizontal="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_centerVertical="true"
+        android:text="Post"
+
+        android:backgroundTint="#2196F3"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:padding="12dp"
+        android:drawableRight="@drawable/baseline_add_location_24"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_marginTop="16dp"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
