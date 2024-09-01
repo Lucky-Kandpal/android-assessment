@@ -60,6 +60,13 @@ class MainActivity : AppCompatActivity() {
         } else {
             locationTextView.text = "Location permission not granted"
         }
+        locationViewModel.locationSendResult.observe(this) { isSuccess ->
+            if (isSuccess) {
+                showAlertDialog("Success", "Location sent successfully!", "OK")
+            } else {
+                showAlertDialog("Failure", "Failed to send location.", "Retry")
+            }
+        }
     }
     private fun setupNotificationPermissionRequest() {
         notificationPermissionRequest = registerForActivityResult(RequestPermission()) { isGranted ->
@@ -128,13 +135,6 @@ class MainActivity : AppCompatActivity() {
         postButton.setOnClickListener {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                 locationViewModel.checkPermissionAndSendLocation()
-                locationViewModel.locationSendResult.observe(this) { isSuccess ->
-                    if (isSuccess) {
-                        showAlertDialog("Success", "Location sent successfully!", "OK")
-                    } else {
-                        showAlertDialog("Failure", "Failed to send location.", "Retry")
-                    }
-                }
 
             } else {
                 locationPermissionRequest.launch(Manifest.permission.ACCESS_FINE_LOCATION)
